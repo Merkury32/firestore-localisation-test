@@ -77,6 +77,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const _c0 = ["entryForm"];
+const _c1 = ["entryForm2"];
 class AppComponent {
     constructor(dataService) {
         this.dataService = dataService;
@@ -86,8 +87,8 @@ class AppComponent {
         this.addData();
         // this.fetchData();
     }
-    fetchData() {
-        this.dataService.fetchData().subscribe(data => {
+    fetchData(indexObject) {
+        this.dataService.fetchData(indexObject).subscribe((data) => {
             this.dataArr.push(data);
             console.log(this.dataArr);
             let a = this.dataArr[0].concat(this.dataArr[1]);
@@ -99,30 +100,90 @@ class AppComponent {
         let X = this.entryForm.value.geoWidth;
         let eventName = this.entryForm.value.event;
         let I = 0;
-        if (this.entryForm.value.land == "Woj1") {
-            I = (Y * 50) * 4550 + (X * 50);
+        if (this.entryForm.value.land == 'Woj1') {
+            I = Y * 50 * 4550 + X * 50;
             console.log(I);
         }
-        else if (this.entryForm.value.land == "Woj2") {
-            I = (Y * 50) * 3350 + (X * 50);
+        else if (this.entryForm.value.land == 'Woj2') {
+            I = Y * 50 * 3350 + X * 50;
             console.log(I);
         }
-        else if (this.entryForm.value.land == "Woj3") {
-            I = (Y * 50) * 4900 + (X * 50);
+        else if (this.entryForm.value.land == 'Woj3') {
+            I = Y * 50 * 4900 + X * 50;
             console.log(I);
         }
         console.log(eventName);
         let b = this.dataService.addData(I, X, Y, eventName);
         console.log(b);
     }
+    readData() {
+        let Y = this.entryForm2.value.geoHeight;
+        let X = this.entryForm2.value.geoWidth;
+        let I = 0;
+        let I_prawy = 0;
+        let I_lewy = 0;
+        let I_gorny = 0;
+        let I_dolny = 0;
+        let I_prawy_gorny = 0;
+        let I_prawy_dolny = 0;
+        let I_lewy_gorny = 0;
+        let I_lewy_dolny = 0;
+        if (this.entryForm2.value.land == 'Woj1') {
+            I = Y * 50 * 4550 + X * 50;
+            I_prawy = I + 1;
+            I_lewy = I - 1;
+            I_gorny = I + 4550;
+            I_dolny = I - 4550;
+            I_prawy_gorny = I + 4550 + 1;
+            I_prawy_dolny = I - 4550 + 1;
+            I_lewy_gorny = I + 4550 - 1;
+            I_lewy_dolny = I - 4550 - 1;
+        }
+        else if (this.entryForm2.value.land == 'Woj2') {
+            I = Y * 50 * 3350 + X * 50;
+            I_prawy = I + 1;
+            I_lewy = I - 1;
+            I_gorny = I + 3350;
+            I_dolny = I - 3350;
+            I_prawy_gorny = I + 3350 + 1;
+            I_prawy_dolny = I - 3350 + 1;
+            I_lewy_gorny = I + 3350 - 1;
+            I_lewy_dolny = I - 3350 - 1;
+        }
+        else if (this.entryForm2.value.land == 'Woj3') {
+            I = Y * 50 * 4900 + X * 50;
+            I_prawy = I + 1;
+            I_lewy = I - 1;
+            I_gorny = I + 4900;
+            I_dolny = I - 4900;
+            I_prawy_gorny = I + 4900 + 1;
+            I_prawy_dolny = I - 4900 + 1;
+            I_lewy_gorny = I + 4900 - 1;
+            I_lewy_dolny = I - 4900 - 1;
+        }
+        let indexObject = {
+            I_srodek: I,
+            I_prawy: I_prawy,
+            I_lewy: I_lewy,
+            I_gorny: I_gorny,
+            I_dolny: I_dolny,
+            I_prawy_gorny: I_prawy_gorny,
+            I_prawy_dolny: I_prawy_dolny,
+            I_lewy_gorny: I_lewy_gorny,
+            I_lewy_dolny: I_lewy_dolny,
+        };
+        this.fetchData(indexObject);
+    }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_data_service_data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"])); };
 AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], viewQuery: function AppComponent_Query(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c0, true);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c1, true);
     } if (rf & 2) {
         var _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.entryForm = _t.first);
-    } }, decls: 26, vars: 0, consts: [["entryForm", "ngForm"], ["for", "event"], ["ngModel", "", "type", "text", "id", "event", "name", "event"], ["for", "land"], ["ngModel", "", "name", "land", "id", "land"], ["value", "Woj1"], ["value", "Woj2"], ["value", "Woj3"], ["for", "geoWidth"], ["ngModel", "", "type", "number", "id", "geoWidth", "name", "geoWidth"], ["for", "geoHeight"], ["ngModel", "", "type", "number", "id", "geoHeight", "name", "geoHeight"], ["type", "button", 3, "click"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.entryForm2 = _t.first);
+    } }, decls: 52, vars: 0, consts: [["entryForm", "ngForm"], ["for", "event"], ["ngModel", "", "type", "text", "id", "event", "name", "event"], ["for", "land"], ["ngModel", "", "name", "land", "id", "land"], ["value", "Woj1"], ["value", "Woj2"], ["value", "Woj3"], ["for", "geoWidth"], ["ngModel", "", "type", "number", "id", "geoWidth", "name", "geoWidth"], ["for", "geoHeight"], ["ngModel", "", "type", "number", "id", "geoHeight", "name", "geoHeight"], ["type", "button", 3, "click"], ["entryForm2", "ngForm"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", null, 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Zdarzenie:");
@@ -156,7 +217,42 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](23, "br");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "button", 12);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_Template_button_click_24_listener() { return ctx.addData(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "Submit");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "Zapisz");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](26, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](27, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](28, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](29, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "form", null, 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "label", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, "Wojew\u00F3dztwo:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "select", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "option", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](36, "Wojew\u00F3dztwo 1");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "option", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](38, "Wojew\u00F3dztwo 2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "option", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](40, "Wojew\u00F3dztwo 3");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](41, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "label", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](43, "Szeroko\u015B\u0107 geograficzna (km):");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](44, "input", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](45, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "label", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](47, "Wysoko\u015B\u0107 geograficzna (km):");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](48, "input", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](49, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "button", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_Template_button_click_50_listener() { return ctx.readData(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51, "Odczytaj");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["SelectControlValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgSelectOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_x"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NumberValueAccessor"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */"] });
@@ -165,11 +261,14 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         args: [{
                 selector: 'app-root',
                 templateUrl: './app.component.html',
-                styleUrls: ['./app.component.scss']
+                styleUrls: ['./app.component.scss'],
             }]
     }], function () { return [{ type: _data_service_data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"] }]; }, { entryForm: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
             args: ['entryForm']
+        }], entryForm2: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
+            args: ['entryForm2']
         }] }); })();
 
 
@@ -264,12 +363,23 @@ class DataService {
         // III: {name: 'Mikołaj', width: 20, height: 30}
         // IV: {name: 'Kacper', width: 40, height: 40}
         // V: {name: 'Jan', width: 50, height: 20}
-        this.db.collection("data2").doc('0').set({ localisationId: I, X: X, Y: Y, eventName: eventName });
+        this.db.collection("data2").doc(I.toString()).set({ localisationId: I, X: X, Y: Y, eventName: eventName });
     }
-    fetchData() {
-        let dataRefWidth = this.db.collection("data", ref => ref.where('width', '>', 5).where('width', '<', 20));
-        let dataRefHeight = this.db.collection("data", ref => ref.where('height', '>', 5).where('height', '<', 10));
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["merge"])(dataRefWidth.valueChanges(), dataRefHeight.valueChanges());
+    fetchData(indexObject) {
+        //let dataRefWidth = this.db.collection("data", ref => ref.where('width', '>', 5).where('width', '<', 20));
+        //let dataRefHeight = this.db.collection("data", ref => ref.where('height', '>', 5).where('height', '<', 10));
+        console.log(indexObject);
+        let dataRefSrodek = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_srodek));
+        let dataRefPrawy = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy));
+        let dataRefLewy = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy));
+        let dataRefGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_gorny));
+        let dataRefDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_dolny));
+        let dataRefPrawyGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy_gorny));
+        let dataRefPrawyDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy_dolny));
+        let dataRefLewyGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy_gorny));
+        let dataRefLewyDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy_dolny));
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["merge"])(dataRefSrodek.valueChanges(), dataRefPrawy.valueChanges(), dataRefLewy.valueChanges(), dataRefGorny.valueChanges(), dataRefDolny.valueChanges(), dataRefPrawyGorny.valueChanges(), dataRefPrawyDolny.valueChanges(), dataRefLewyGorny.valueChanges(), dataRefLewyDolny.valueChanges());
+        // return of();
     }
 }
 DataService.ɵfac = function DataService_Factory(t) { return new (t || DataService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"])); };

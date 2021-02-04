@@ -6,7 +6,7 @@ import { DataService } from './data-service/data.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   @ViewChild('entryForm') entryForm: AppComponent;
@@ -22,16 +22,15 @@ export class AppComponent implements OnInit {
     // this.fetchData();
   }
 
-  fetchData() {
-    this.dataService.fetchData().subscribe(data => {
+  fetchData(indexObject) {
+    this.dataService.fetchData(indexObject).subscribe((data) => {
       this.dataArr.push(data);
       console.log(this.dataArr);
 
       let a = this.dataArr[0].concat(this.dataArr[1]);
 
       console.log(a);
-
-    })
+    });
   }
 
   addData() {
@@ -40,14 +39,14 @@ export class AppComponent implements OnInit {
     let eventName = this.entryForm.value.event;
     let I = 0;
 
-    if (this.entryForm.value.land == "Woj1") {
-      I = (Y*50) * 4550 + (X*50);
+    if (this.entryForm.value.land == 'Woj1') {
+      I = Y * 50 * 4550 + X * 50;
       console.log(I);
-    } else if (this.entryForm.value.land == "Woj2") {
-      I = (Y*50) * 3350 + (X*50);
+    } else if (this.entryForm.value.land == 'Woj2') {
+      I = Y * 50 * 3350 + X * 50;
       console.log(I);
-    } else if (this.entryForm.value.land == "Woj3") {
-      I = (Y*50) * 4900 + (X*50);
+    } else if (this.entryForm.value.land == 'Woj3') {
+      I = Y * 50 * 4900 + X * 50;
       console.log(I);
     }
 
@@ -70,9 +69,8 @@ export class AppComponent implements OnInit {
     let I_lewy_gorny = 0;
     let I_lewy_dolny = 0;
 
-
-    if (this.entryForm2.value.land == "Woj1") {
-      I = (Y*50) * 4550 + (X*50);
+    if (this.entryForm2.value.land == 'Woj1') {
+      I = Y * 50 * 4550 + X * 50;
       I_prawy = I + 1;
       I_lewy = I - 1;
       I_gorny = I + 4550;
@@ -81,8 +79,8 @@ export class AppComponent implements OnInit {
       I_prawy_dolny = I - 4550 + 1;
       I_lewy_gorny = I + 4550 - 1;
       I_lewy_dolny = I - 4550 - 1;
-    } else if (this.entryForm2.value.land == "Woj2") {
-      I = (Y*50) * 3350 + (X*50);
+    } else if (this.entryForm2.value.land == 'Woj2') {
+      I = Y * 50 * 3350 + X * 50;
       I_prawy = I + 1;
       I_lewy = I - 1;
       I_gorny = I + 3350;
@@ -91,8 +89,8 @@ export class AppComponent implements OnInit {
       I_prawy_dolny = I - 3350 + 1;
       I_lewy_gorny = I + 3350 - 1;
       I_lewy_dolny = I - 3350 - 1;
-    } else if (this.entryForm2.value.land == "Woj3") {
-      I = (Y*50) * 4900 + (X*50);
+    } else if (this.entryForm2.value.land == 'Woj3') {
+      I = Y * 50 * 4900 + X * 50;
       I_prawy = I + 1;
       I_lewy = I - 1;
       I_gorny = I + 4900;
@@ -102,5 +100,19 @@ export class AppComponent implements OnInit {
       I_lewy_gorny = I + 4900 - 1;
       I_lewy_dolny = I - 4900 - 1;
     }
+
+    let indexObject = {
+      I_srodek: I,
+      I_prawy: I_prawy,
+      I_lewy: I_lewy,
+      I_gorny: I_gorny,
+      I_dolny: I_dolny,
+      I_prawy_gorny: I_prawy_gorny,
+      I_prawy_dolny: I_prawy_dolny,
+      I_lewy_gorny: I_lewy_gorny,
+      I_lewy_dolny: I_lewy_dolny,
+    };
+
+    this.fetchData(indexObject);
   }
 }

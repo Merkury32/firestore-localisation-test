@@ -23,5 +23,31 @@
 
   <br>
 
-  <button type="button" (click)="addData()">Submit</button>
+  <button type="button" (click)="addData()">Zapisz</button>
+</form>
+
+<br><br><br><br>
+
+<form #entryForm2="ngForm">
+
+  <label for="land">Województwo:</label>
+  <select ngModel name="land" id="land">
+    <option value="Woj1">Województwo 1</option>
+    <option value="Woj2">Województwo 2</option>
+    <option value="Woj3">Województwo 3</option>
+  </select>
+
+  <br>
+
+  <label for="geoWidth">Szerokość geograficzna (km):</label>
+  <input ngModel type="number" id="geoWidth" name="geoWidth">
+
+  <br>
+
+  <label for="geoHeight">Wysokość geograficzna (km):</label>
+  <input ngModel type="number" id="geoHeight" name="geoHeight">
+
+  <br>
+
+  <button type="button" (click)="readData()">Odczytaj</button>
 </form>

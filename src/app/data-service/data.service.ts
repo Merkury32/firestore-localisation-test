@@ -19,7 +19,7 @@ export class DataService {
       // IV: {name: 'Kacper', width: 40, height: 40}
       // V: {name: 'Jan', width: 50, height: 20}
 
-      this.db.collection("data2").doc('0').set({localisationId: I, X: X, Y: Y, eventName: eventName})
+      this.db.collection("data2").doc(I.toString()).set({localisationId: I, X: X, Y: Y, eventName: eventName})
   }
 
   fetchData() {
@@ -29,6 +29,4 @@ export class DataService {
     return merge(dataRefWidth.valueChanges(), dataRefHeight.valueChanges());
 
   }
-
-
 }

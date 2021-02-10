@@ -148,9 +148,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     var _c0 = ["entryForm"];
     var _c1 = ["entryForm2"];
+
+    function AppComponent_li_53_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var item_r3 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", item_r3.key, " - ", item_r3.value, "");
+      }
+    }
 
     var AppComponent = /*#__PURE__*/function () {
       function AppComponent(dataService) {
@@ -170,14 +194,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function fetchData(indexObject) {
           var _this = this;
 
+          // this.dataService.fetchData(indexObject)
           this.dataService.fetchData(indexObject).subscribe(function (data) {
-            _this.dataArr.push(data);
-
-            console.log(_this.dataArr);
-
-            var a = _this.dataArr[0].concat(_this.dataArr[1]);
-
-            console.log(a);
+            console.log(data[0]);
+            _this.outputData = data[0][0];
+            console.log(_this.outputData);
           });
         }
       }, {
@@ -289,9 +310,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.entryForm2 = _t.first);
         }
       },
-      decls: 52,
-      vars: 0,
-      consts: [["entryForm", "ngForm"], ["for", "event"], ["ngModel", "", "type", "text", "id", "event", "name", "event"], ["for", "land"], ["ngModel", "", "name", "land", "id", "land"], ["value", "Woj1"], ["value", "Woj2"], ["value", "Woj3"], ["for", "geoWidth"], ["ngModel", "", "type", "number", "id", "geoWidth", "name", "geoWidth"], ["for", "geoHeight"], ["ngModel", "", "type", "number", "id", "geoHeight", "name", "geoHeight"], ["type", "button", 3, "click"], ["entryForm2", "ngForm"]],
+      decls: 55,
+      vars: 3,
+      consts: [["entryForm", "ngForm"], ["for", "event"], ["ngModel", "", "type", "text", "id", "event", "name", "event"], ["for", "land"], ["ngModel", "", "name", "land", "id", "land"], ["value", "Woj1"], ["value", "Woj2"], ["value", "Woj3"], ["for", "geoWidth"], ["ngModel", "", "type", "number", "id", "geoWidth", "name", "geoWidth"], ["for", "geoHeight"], ["ngModel", "", "type", "number", "id", "geoHeight", "name", "geoHeight"], ["type", "button", 3, "click"], ["entryForm2", "ngForm"], [4, "ngFor", "ngForOf"]],
       template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", null, 0);
@@ -439,9 +460,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "ul");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](53, AppComponent_li_53_Template, 2, 2, "li", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](54, "keyvalue");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](53);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](54, 1, ctx.outputData));
         }
       },
-      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["SelectControlValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgSelectOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_x"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NumberValueAccessor"]],
+      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["SelectControlValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgSelectOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_x"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NumberValueAccessor"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"]],
+      pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["KeyValuePipe"]],
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */"]
     });
     /*@__PURE__*/
@@ -615,7 +651,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/fire/firestore */
     "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-firestore.js");
 
@@ -649,32 +691,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           console.log(indexObject);
           var dataRefSrodek = this.db.collection("data2", function (ref) {
             return ref.where('localisationId', '==', indexObject.I_srodek);
-          });
+          }).valueChanges();
           var dataRefPrawy = this.db.collection("data2", function (ref) {
             return ref.where('localisationId', '==', indexObject.I_prawy);
-          });
+          }).valueChanges();
           var dataRefLewy = this.db.collection("data2", function (ref) {
             return ref.where('localisationId', '==', indexObject.I_lewy);
-          });
+          }).valueChanges();
           var dataRefGorny = this.db.collection("data2", function (ref) {
             return ref.where('localisationId', '==', indexObject.I_gorny);
-          });
+          }).valueChanges();
           var dataRefDolny = this.db.collection("data2", function (ref) {
             return ref.where('localisationId', '==', indexObject.I_dolny);
-          });
+          }).valueChanges();
           var dataRefPrawyGorny = this.db.collection("data2", function (ref) {
             return ref.where('localisationId', '==', indexObject.I_prawy_gorny);
-          });
+          }).valueChanges();
           var dataRefPrawyDolny = this.db.collection("data2", function (ref) {
             return ref.where('localisationId', '==', indexObject.I_prawy_dolny);
-          });
+          }).valueChanges();
           var dataRefLewyGorny = this.db.collection("data2", function (ref) {
             return ref.where('localisationId', '==', indexObject.I_lewy_gorny);
-          });
+          }).valueChanges();
           var dataRefLewyDolny = this.db.collection("data2", function (ref) {
             return ref.where('localisationId', '==', indexObject.I_lewy_dolny);
-          });
-          return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["merge"])(dataRefSrodek.valueChanges(), dataRefPrawy.valueChanges(), dataRefLewy.valueChanges(), dataRefGorny.valueChanges(), dataRefDolny.valueChanges(), dataRefPrawyGorny.valueChanges(), dataRefPrawyDolny.valueChanges(), dataRefLewyGorny.valueChanges(), dataRefLewyDolny.valueChanges()); // return of();
+          }).valueChanges();
+          return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["forkJoin"])([dataRefSrodek.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)), dataRefPrawy.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)), dataRefLewy.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)), dataRefGorny.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)), dataRefDolny.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)), dataRefPrawyGorny.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)), dataRefPrawyDolny.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)), dataRefLewyGorny.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)), dataRefLewyDolny.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1))]); // return of();
         }
       }]);
 
@@ -682,7 +724,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     DataService.ɵfac = function DataService_Factory(t) {
-      return new (t || DataService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]));
+      return new (t || DataService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"]));
     };
 
     DataService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
@@ -700,7 +742,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }]
       }], function () {
         return [{
-          type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]
+          type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"]
         }];
       }, null);
     })();

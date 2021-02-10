@@ -71,6 +71,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/database */ "./node_modules/firebase/database/dist/index.esm.js");
 /* harmony import */ var _data_service_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data-service/data.service */ "./src/app/data-service/data.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
 
 
 
@@ -78,6 +80,15 @@ __webpack_require__.r(__webpack_exports__);
 
 const _c0 = ["entryForm"];
 const _c1 = ["entryForm2"];
+function AppComponent_li_53_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const item_r3 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", item_r3.key, " - ", item_r3.value, "");
+} }
 class AppComponent {
     constructor(dataService) {
         this.dataService = dataService;
@@ -88,11 +99,11 @@ class AppComponent {
         // this.fetchData();
     }
     fetchData(indexObject) {
-        this.dataService.fetchData(indexObject).subscribe((data) => {
-            this.dataArr.push(data);
-            console.log(this.dataArr);
-            let a = this.dataArr[0].concat(this.dataArr[1]);
-            console.log(a);
+        // this.dataService.fetchData(indexObject)
+        this.dataService.fetchData(indexObject).subscribe(data => {
+            console.log(data[0]);
+            this.outputData = data[0][0];
+            console.log(this.outputData);
         });
     }
     addData() {
@@ -183,7 +194,7 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         var _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.entryForm = _t.first);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.entryForm2 = _t.first);
-    } }, decls: 52, vars: 0, consts: [["entryForm", "ngForm"], ["for", "event"], ["ngModel", "", "type", "text", "id", "event", "name", "event"], ["for", "land"], ["ngModel", "", "name", "land", "id", "land"], ["value", "Woj1"], ["value", "Woj2"], ["value", "Woj3"], ["for", "geoWidth"], ["ngModel", "", "type", "number", "id", "geoWidth", "name", "geoWidth"], ["for", "geoHeight"], ["ngModel", "", "type", "number", "id", "geoHeight", "name", "geoHeight"], ["type", "button", 3, "click"], ["entryForm2", "ngForm"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 55, vars: 3, consts: [["entryForm", "ngForm"], ["for", "event"], ["ngModel", "", "type", "text", "id", "event", "name", "event"], ["for", "land"], ["ngModel", "", "name", "land", "id", "land"], ["value", "Woj1"], ["value", "Woj2"], ["value", "Woj3"], ["for", "geoWidth"], ["ngModel", "", "type", "number", "id", "geoWidth", "name", "geoWidth"], ["for", "geoHeight"], ["ngModel", "", "type", "number", "id", "geoHeight", "name", "geoHeight"], ["type", "button", 3, "click"], ["entryForm2", "ngForm"], [4, "ngFor", "ngForOf"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", null, 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Zdarzenie:");
@@ -255,7 +266,14 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51, "Odczytaj");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["SelectControlValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgSelectOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_x"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NumberValueAccessor"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "ul");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](53, AppComponent_li_53_Template, 2, 2, "li", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](54, "keyvalue");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](53);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](54, 1, ctx.outputData));
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["SelectControlValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgSelectOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_x"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NumberValueAccessor"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["KeyValuePipe"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -348,7 +366,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DataService", function() { return DataService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-firestore.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-firestore.js");
+
 
 
 
@@ -369,27 +389,36 @@ class DataService {
         //let dataRefWidth = this.db.collection("data", ref => ref.where('width', '>', 5).where('width', '<', 20));
         //let dataRefHeight = this.db.collection("data", ref => ref.where('height', '>', 5).where('height', '<', 10));
         console.log(indexObject);
-        let dataRefSrodek = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_srodek));
-        let dataRefPrawy = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy));
-        let dataRefLewy = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy));
-        let dataRefGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_gorny));
-        let dataRefDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_dolny));
-        let dataRefPrawyGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy_gorny));
-        let dataRefPrawyDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy_dolny));
-        let dataRefLewyGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy_gorny));
-        let dataRefLewyDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy_dolny));
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["merge"])(dataRefSrodek.valueChanges(), dataRefPrawy.valueChanges(), dataRefLewy.valueChanges(), dataRefGorny.valueChanges(), dataRefDolny.valueChanges(), dataRefPrawyGorny.valueChanges(), dataRefPrawyDolny.valueChanges(), dataRefLewyGorny.valueChanges(), dataRefLewyDolny.valueChanges());
+        let dataRefSrodek = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_srodek)).valueChanges();
+        let dataRefPrawy = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy)).valueChanges();
+        let dataRefLewy = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy)).valueChanges();
+        let dataRefGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_gorny)).valueChanges();
+        let dataRefDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_dolny)).valueChanges();
+        let dataRefPrawyGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy_gorny)).valueChanges();
+        let dataRefPrawyDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy_dolny)).valueChanges();
+        let dataRefLewyGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy_gorny)).valueChanges();
+        let dataRefLewyDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy_dolny)).valueChanges();
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["forkJoin"])([dataRefSrodek.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)),
+            dataRefPrawy.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)),
+            dataRefLewy.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)),
+            dataRefGorny.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)),
+            dataRefDolny.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)),
+            dataRefPrawyGorny.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)),
+            dataRefPrawyDolny.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)),
+            dataRefLewyGorny.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)),
+            dataRefLewyDolny.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1))
+        ]);
         // return of();
     }
 }
-DataService.ɵfac = function DataService_Factory(t) { return new (t || DataService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"])); };
+DataService.ɵfac = function DataService_Factory(t) { return new (t || DataService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"])); };
 DataService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: DataService, factory: DataService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DataService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
                 providedIn: 'root'
             }]
-    }], function () { return [{ type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] }]; }, null); })();
+    }], function () { return [{ type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"] }]; }, null); })();
 
 
 /***/ }),

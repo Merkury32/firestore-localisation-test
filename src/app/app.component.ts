@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
 
   dataArr = [];
   value: any;
+  outputData: any;
 
   ngOnInit() {
     this.addData();
@@ -23,19 +24,21 @@ export class AppComponent implements OnInit {
   }
 
   fetchData(indexObject) {
-    this.dataService.fetchData(indexObject).subscribe((data) => {
-      this.dataArr.push(data);
-      console.log(this.dataArr);
+    // this.dataService.fetchData(indexObject)
 
-      let a = this.dataArr[0].concat(this.dataArr[1]);
+     this.dataService.fetchData(indexObject).subscribe(data => {
+      console.log(data[0]);
+      this.outputData = data[0][0];
+      console.log(this.outputData);
 
-      console.log(a);
-    });
+     });
+
   }
 
   addData() {
     let Y = this.entryForm.value.geoHeight;
     let X = this.entryForm.value.geoWidth;
+
     let eventName = this.entryForm.value.event;
     let I = 0;
 
@@ -59,6 +62,7 @@ export class AppComponent implements OnInit {
   readData() {
     let Y = this.entryForm2.value.geoHeight;
     let X = this.entryForm2.value.geoWidth;
+
     let I = 0;
     let I_prawy = 0;
     let I_lewy = 0;

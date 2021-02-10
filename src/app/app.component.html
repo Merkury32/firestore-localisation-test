@@ -51,3 +51,7 @@
 
   <button type="button" (click)="readData()">Odczytaj</button>
 </form>
+
+<ul>
+  <li *ngFor="let item of outputData | keyvalue">{{item.key}} - {{item.value}}</li>
+</ul>

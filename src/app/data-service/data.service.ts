@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 
-import { merge, of } from 'rxjs';
+import { merge, of, forkJoin } from 'rxjs';
+import { take } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,26 +29,29 @@ export class DataService {
     //let dataRefHeight = this.db.collection("data", ref => ref.where('height', '>', 5).where('height', '<', 10));
     console.log(indexObject);
 
-    let dataRefSrodek = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_srodek));
-    let dataRefPrawy = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy));
-    let dataRefLewy = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy));
-    let dataRefGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_gorny));
-    let dataRefDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_dolny));
-    let dataRefPrawyGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy_gorny));
-    let dataRefPrawyDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy_dolny));
-    let dataRefLewyGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy_gorny));
-    let dataRefLewyDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy_dolny));
+    let dataRefSrodek = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_srodek)).valueChanges();
+    let dataRefPrawy = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy)).valueChanges();
+    let dataRefLewy = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy)).valueChanges();
+    let dataRefGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_gorny)).valueChanges();
+    let dataRefDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_dolny)).valueChanges();
+    let dataRefPrawyGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy_gorny)).valueChanges();
+    let dataRefPrawyDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_prawy_dolny)).valueChanges();
+    let dataRefLewyGorny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy_gorny)).valueChanges();
+    let dataRefLewyDolny = this.db.collection("data2", ref => ref.where('localisationId', '==', indexObject.I_lewy_dolny)).valueChanges();
 
 
-    return merge(dataRefSrodek.valueChanges(),
-                dataRefPrawy.valueChanges(),
-                dataRefLewy.valueChanges(),
-                dataRefGorny.valueChanges(),
-                dataRefDolny.valueChanges(),
-                dataRefPrawyGorny.valueChanges(),
-                dataRefPrawyDolny.valueChanges(),
-                dataRefLewyGorny.valueChanges(),
-                dataRefLewyDolny.valueChanges())
+
+    return forkJoin([dataRefSrodek.pipe(take(1)),
+                    dataRefPrawy.pipe(take(1)),
+                    dataRefLewy.pipe(take(1)),
+                    dataRefGorny.pipe(take(1)),
+                    dataRefDolny.pipe(take(1)),
+                    dataRefPrawyGorny.pipe(take(1)),
+                    dataRefPrawyDolny.pipe(take(1)),
+                    dataRefLewyGorny.pipe(take(1)),
+                    dataRefLewyDolny.pipe(take(1))
+                  ]);
+
     // return of();
   }
 }
